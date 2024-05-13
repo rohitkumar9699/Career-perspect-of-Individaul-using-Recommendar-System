@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Personal Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <form class="form-horizontal" method="post" action="{{ url_for('update_info', user_id=user[0]) }}">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar" alt="User avatar">
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Personal Information</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control custom-input" name="name" value="{{user[1]}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Mobile number</label>
+                                <div class="col-sm-9">
+                                    <input type="tel" class="form-control custom-input" name="mobile" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" value="{{user[4]}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <button type="submit" class="button">Update</button>
+                            <a href="{{ url_for('back', user_id=user[0], user_name=user[1]) }}">Back</a>
+
+
+                        </div>
+                    </div>
+                    {% if message %}
+                    <h3> {{message}}</h3>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

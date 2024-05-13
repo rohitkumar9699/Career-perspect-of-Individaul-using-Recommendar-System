@@ -1,0 +1,58 @@
+body {
+    background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.panel {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+.panel-title {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.panel-body {
+    padding: 30px;
+}
+
+.form-control {
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.custom-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.custom-btn {
+    border-radius: 20px;
+    padding: 12px 24px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.custom-btn:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.profile-avatar {
+    width: 150px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
