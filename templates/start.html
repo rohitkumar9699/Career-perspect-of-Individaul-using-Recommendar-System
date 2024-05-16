@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personality Analysis System</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcfbfc;
+    background: linear-gradient(to right, #4ca2cd, #67B26F);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure the container takes the full viewport height */
+}
+
+.mynav {
+    background: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: center; /* Center the text within the navigation bar */
+}
+
+.container {
+    max-width: 55%; /* Reduce the width to make content more centered */
+    padding: 20px;
+    height:600px;
+    background: linear-gradient(to right,  #9267b2, #5fcd4c);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center; /* Center the text within the container */
+}
+
+.rectangle {
+    position: relative;
+    background-color: rgba(107, 106, 106, 0.7); /* Transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add some space between the rectangle and other content */
+}
+
+.rectangle p {
+    color: yellow; /* Yellow text color */
+    font-weight: bold; /* Bold font style */
+}
+
+.rectangle:hover {
+    transform: scale(1.05); /* Zoom in effect on hover */
+}
+
+h1 {
+    font-size: 40px; /* Reduce the font size for better visual hierarchy */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px; /* Reduce the font size for better visual hierarchy */
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button containers horizontally */
+    margin-top: 10px;
+    margin-left: 10px;
+    /* width: 900px; */
+    
+}
+
+.button-container img {
+    width: 300px;
+    height: auto;
+    margin-inline: 70px; /* Add space between image and button */
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    margin-inline: 140px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: aqua;
+}
+
+</style>
+</head>
+<body>
+<div class="mynav shadow-sm" style="background:black; color:white;text:bold; padding:10px;width:100%;">
+    <h1 class="text-center">Personality Analysis System</h1>
+</div>
+<div class="container">
+    <div class="rectangle">
+        <p>The Career Recommendation System is an advanced tool that provides personalized guidance for individuals navigating their career paths. By analyzing skills, interests, and career options, it offers tailored recommendations for job roles. With its user-focused approach and adaptive algorithms, it empowers users to make informed decisions and pursue successful careers.</p>
+    </div>
+
+    <div class="button-container">
+        <div class="button-container left">
+            <img src="{{ url_for('static', filename='student.png') }}" alt="Student Image">
+        </div>
+        <div class="button-container right">
+            <img src="{{ url_for('static', filename='admin.jpg') }}" alt="Admin Image">
+        </div>
+    </div>
+
+    <div class="button-container">
+        <div class="button-container left">
+            <a href="{{ url_for('login')}}" class="button">For Students</a>
+        </div>
+        <div class="button-container right">
+            <a href="{{ url_for('admin_login')}}" class="button">For Admin</a>
+        </div>
+    </div>
+    
+</div>  
+
+</body>
+</html>

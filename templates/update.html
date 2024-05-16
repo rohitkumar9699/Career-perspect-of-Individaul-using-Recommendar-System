@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Personal Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2f555a;
+            color: white;
+        }
+
+        .container {
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            /* Add a light blue color */
+            background-color: rgba(173, 216, 230, 0.5);
+            /* Light blue with opacity */
+        }
+
+        .container:hover {
+            background-color: rgba(35, 115, 146, 0.7);
+            /* Lighter blue on hover */
+        }
+
+        /* Panel Styles */
+        .panel {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-default {
+            border-color: #e6e6e6;
+        }
+
+        .panel-heading {
+            background-color: #4c9ade;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .panel-body {
+            background-color: #2f555a;
+            padding: 30px;
+            opacity: 0.9;
+        }
+
+        /* Avatar Styles */
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styles */
+        .form-horizontal .control-label {
+            text-align: left;
+            font-weight: 500;
+            color: white; /* Change label color to white */
+        }
+
+        .form-control.custom-input {
+            border-radius: 5px;
+            border-color: #faf8f8;
+            box-shadow: none;
+            color:black;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control.custom-input:focus {
+            border-color: #ca370a;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            border: 2px solid white;
+            padding: 10px 20px;
+            background-color: #1e2538f2;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #E11D48;
+            color: black;
+
+            /* Ensure text is visible on hover */
+        }
+
+        a.button {
+            margin-left: 20px;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+
+        }
+        #message{
+            color:green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <form class="form-horizontal" method="post" action="{{ url_for('update_info', user_id=user[0]) }}">
+                    <div class="container">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                    class="img-circle profile-avatar" alt="User avatar">
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Personal Information</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Name</label>
+                                    <div class="col-sm-9 ">
+                                        <input type="text" class="form-control custom-input" name="name"
+                                            value="{{user[1]}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Mobile number</label>
+                                    <div class="col-sm-9">
+                                        <input type="tel" class="form-control custom-input" name="mobile"
+                                            pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number"
+                                            value="{{user[4]}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <button type="submit" class="button">Update</button>
+                                <a href="{{ url_for('back', user_id=user[0], user_name=user[1]) }}"
+                                    class="button">Back</a>
+                            </div>
+                            {% if message %}
+                            <h3 id="message" > {{message}}</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                </form> 
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

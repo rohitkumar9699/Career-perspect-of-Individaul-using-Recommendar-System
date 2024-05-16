@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 20px; /* Increased height of navbar */
+            text-align: center;
+        }
+
+        .navbar a {
+            font-size: 32px; /* Adjusted font size for navbar buttons */
+            margin: 0 35px; /* Increased space between navbar buttons */
+            padding: 10px 20px; /* Padding for navbar buttons */
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Darken background on hover */
+            color: rgb(255, 255, 0);
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .student-info {
+            margin-top: 20px;
+            transition: transform 0.3s ease; /* Add transition for smooth effect */
+        }
+
+        .student-info:hover {
+            transform: scale(1.1); /* Zoom out effect on hover */
+        }
+
+        .student-name {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .student-id {
+            font-size: 20px;
+        }
+
+        .menu {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            width: calc(100% - 250px); /* Adjusted width to account for the left panel */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image:nth-child(1) {
+            opacity: 1;
+            animation: fadeInOut 9s infinite;
+        }
+
+        .image:nth-child(2) {
+            animation: fadeInOut 9s infinite 3s;
+        }
+
+        .image:nth-child(3) {
+            animation: fadeInOut 9s infinite 6s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% if message %}
+    <h2> {{message}}</h2>
+    <!-- <h1>{{ans}}</h1> -->
+    {% endif %}
+    <div class="navbar">
+        <a href="{{ url_for('profile', user_id=user_id, user_name=user_name) }}">Profile</a>
+        <a href="{{ url_for('fill_form', user_id=user_id , user_name=user_name) }}">Take Test</a>
+        <a href="{{ url_for('update', user_id=user_id , user_name=user_name) }}">Update Profile</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="profile-pic" alt="Profile pic">
+            <div class="student-info">
+                <div class="student-name">User ID: {{ user_id }}</div>
+                <div class="student-id">{{ user_name }}</div>
+            </div>
+        </div>
+        <div class="menu">
+            <img class="image" src="{{ url_for('static', filename='img.jpg') }}" alt="Image">
+            <img class="image" src="{{ url_for('static', filename='img_1.jpeg') }}" alt="Image">
+            <img class="image" src="{{ url_for('static', filename='img_2.jpeg') }}" alt="Image">
+        </div>
+    </div>
+</body>
+</html>
